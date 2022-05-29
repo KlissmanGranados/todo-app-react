@@ -49,10 +49,11 @@ export function Task(props) {
 
     return (
         <div className="d-flex" ref={container}>
-            <Form.Control className="rounded-0" ref={task} defaultValue={message} />
-            <button className="btn btn-dark" onClick={remove}>
+
+            <button className="btn btn-dark rounded-0" onClick={remove}>
                 <FontAwesomeIcon icon={faEraser} />
             </button>
+            <Form.Control className="rounded-0" ref={task} defaultValue={message} />
             <input ref={checkbox} type="checkbox" onClick={crossOutOrHighlight} />
         </div>
     );

@@ -35,12 +35,9 @@ export function Note(props) {
     }
 
     return (
-        <Col ref={noteCard} className="p-0" style={{ height: '50vh' }} key={id}>
+        <Col ref={noteCard} className="mb-2 p-0" style={{ height: '50vh' }} key={id}>
             <Card
-                bg="dark"
-                key="dark"
-                text="white"
-                className="rounded-0  h-100">
+                className="rounded-0 h-100">
                 <Card.Header className="d-flex justify-content-between">
                     <div>
                         <span>{title}</span>
@@ -57,15 +54,17 @@ export function Note(props) {
                 </Card.Header>
                 <Card.Body className="overflow-auto " ref={noteCardBody}>
                     {
-                        tasks.map(task =>
-                            <Task
-                                noteCard={noteCard}
-                                totalTask={totalTask}
-                                taskDone={taksDone}
-                                percentage={percentageRealized}
-                                key={task.id}
-                                message={task.message}
-                            />)
+                        tasks.length ?
+                            tasks.map(task =>
+                                <Task
+                                    noteCard={noteCard}
+                                    totalTask={totalTask}
+                                    taskDone={taksDone}
+                                    percentage={percentageRealized}
+                                    key={task.id}
+                                    message={task.message}
+                                />) :
+                            'Sin registros :0'
                     }
                 </Card.Body>
             </Card>
